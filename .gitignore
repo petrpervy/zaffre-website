@@ -1,0 +1,10 @@
+# Backups
+index-backup-*.html
+
+# OS Files
+.DS_Store
+*.log
+
+# Development
+node_modules/
+.env
