@@ -244,7 +244,9 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center overflow-hidden" style="background: linear-gradient(to right, rgba(248, 250, 252, 0.98) 0%, rgba(248, 250, 252, 0.92) 40%, rgba(248, 250, 252, 0.75) 70%, rgba(248, 250, 252, 0.4) 100%), url('images/hero-bg.png'); background-size: 140%; background-position: 75% 35%;">
+    <section class="relative min-h-screen flex items-center overflow-hidden" style="background: linear-gradient(to right, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 40%, rgba(255, 255, 255, 0.75) 70%, rgba(255, 255, 255, 0.4) 100%), url('images/hero-bg.png'); background-size: 140%; background-position: 75% 35%;">
+        <!-- Bottom fade to white -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
         <div class="relative max-w-7xl mx-auto px-6 lg:px-16 pt-28 pb-20 w-full">
             <div class="max-w-3xl">
                 <!-- Trust Badge -->
@@ -296,7 +298,9 @@
     </section>
 
     <!-- PROBLEM SECTION -->
-    <section class="py-24 bg-white relative overflow-hidden">
+    <section class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, white 0%, #F8FAFC 40%, #F3F6FB 70%, #EDF2FA 90%, #E8EFF8 100%);">
+        <!-- Subtle orb at bottom to match services -->
+        <div class="glass-orb bg-blue-100 w-[400px] h-[400px]" style="bottom: -200px; left: -150px; opacity: 0.2;"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-16">
             <div class="max-w-3xl mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-navy">Traditional agencies waste your time.</h2>
@@ -343,10 +347,10 @@
     </section>
 
     <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #F8FAFC, #EFF6FF);">
-        <!-- Ambient orbs -->
-        <div class="glass-orb bg-blue-300 w-[500px] h-[500px]" style="top: -150px; left: -150px;"></div>
-        <div class="glass-orb bg-indigo-200 w-[400px] h-[400px]" style="bottom: -100px; right: -100px;"></div>
+    <section id="services" class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #E8EFF8 0%, #EBF2FD 15%, #EFF6FF 35%, #EFF6FF 50%, #F1F5FD 75%, #F8FAFC 100%);">
+        <!-- Ambient orbs - moved down to avoid sharp transitions at top -->
+        <div class="glass-orb bg-blue-100 w-[500px] h-[500px]" style="top: 100px; left: -200px; opacity: 0.2;"></div>
+        <div class="glass-orb bg-indigo-100 w-[400px] h-[400px]" style="bottom: -150px; right: -150px; opacity: 0.15;"></div>
 
         <div class="relative max-w-7xl mx-auto px-6 lg:px-16">
             <div class="max-w-3xl mb-16">
@@ -403,10 +407,10 @@
     </section>
 
     <!-- PORTFOLIO SECTION -->
-    <section id="work" class="py-24 relative overflow-hidden bg-white">
-        <!-- Ambient orbs -->
-        <div class="glass-orb bg-blue-200 w-[400px] h-[400px]" style="top: 50px; right: -100px;"></div>
-        <div class="glass-orb bg-slate-300 w-[350px] h-[350px]" style="bottom: 50px; left: -100px;"></div>
+    <section id="work" class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #F8FAFC 0%, #F8FAFC 70%, #F5F8FC 90%, #F1F5FD 100%);">
+        <!-- Ambient orbs - reduced opacity for smoother transitions -->
+        <div class="glass-orb bg-blue-100 w-[400px] h-[400px]" style="top: 50px; right: -150px; opacity: 0.15;"></div>
+        <div class="glass-orb bg-slate-200 w-[350px] h-[350px]" style="bottom: -100px; left: -150px; opacity: 0.15;"></div>
 
         <div class="relative max-w-7xl mx-auto px-6 lg:px-16">
             <div class="max-w-3xl mb-16">
@@ -483,10 +487,10 @@
     </section>
 
     <!-- PRICING SECTION -->
-    <section id="pricing" class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #EFF6FF, #F8FAFC);">
-        <!-- Ambient orbs -->
-        <div class="glass-orb bg-blue-300 w-[500px] h-[500px]" style="top: -100px; right: -150px;"></div>
-        <div class="glass-orb bg-indigo-200 w-[400px] h-[400px]" style="bottom: -100px; left: -100px;"></div>
+    <section id="pricing" class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #F1F5FD 0%, #EDF2FC 15%, #EFF6FF 40%, #EFF6FF 60%, #F1F5FD 85%, #F8FAFC 100%);">
+        <!-- Ambient orbs - reduced and repositioned for smoother transitions -->
+        <div class="glass-orb bg-blue-100 w-[400px] h-[400px]" style="top: 100px; right: -200px; opacity: 0.15;"></div>
+        <div class="glass-orb bg-indigo-100 w-[350px] h-[350px]" style="bottom: 100px; left: -200px; opacity: 0.12;"></div>
 
         <div class="relative max-w-7xl mx-auto px-6 lg:px-16">
             <div class="text-center mb-16">
@@ -691,7 +695,9 @@
     </section>
 
     <!-- PROCESS SECTION -->
-    <section class="py-24 bg-white">
+    <section class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #F8FAFC 0%, #F8FAFC 50%, #F5F8FC 80%, #F1F5FD 100%);">
+        <!-- Subtle orb to bridge with FAQ section -->
+        <div class="glass-orb bg-slate-200 w-[300px] h-[300px]" style="bottom: -150px; right: -100px; opacity: 0.1;"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-16">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-navy">How we work.</h2>
@@ -747,10 +753,10 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #F8FAFC, #EFF6FF, #F8FAFC);">
-        <!-- Ambient orbs -->
-        <div class="glass-orb bg-slate-300 w-[350px] h-[350px]" style="top: 100px; right: -80px;"></div>
-        <div class="glass-orb bg-blue-200 w-[300px] h-[300px]" style="bottom: 100px; left: -80px;"></div>
+    <section class="py-24 relative overflow-hidden" style="background: linear-gradient(to bottom, #F1F5FD 0%, #EBF0F9 10%, #E5EBF5 25%, #C9D5E8 45%, #6B7D99 65%, #3D4F6A 80%, #1e293b 95%, #1e293b 100%);">
+        <!-- Ambient orbs - subtle -->
+        <div class="glass-orb bg-slate-300 w-[300px] h-[300px]" style="top: 50px; right: -120px; opacity: 0.1;"></div>
+        <div class="glass-orb bg-blue-200 w-[250px] h-[250px]" style="bottom: 200px; left: -100px; opacity: 0.08;"></div>
 
         <div class="relative max-w-4xl mx-auto px-6 lg:px-16">
             <div class="text-center mb-16">
@@ -794,7 +800,7 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section id="contact" class="relative py-32 overflow-hidden" style="background: linear-gradient(to bottom, rgba(15, 23, 42, 0.75), rgba(30, 41, 59, 0.80)), url('images/nanobnana.png'); background-size: cover; background-position: center;">
+    <section id="contact" class="relative py-32 overflow-hidden" style="background: linear-gradient(to bottom, #1e293b 0%, rgba(15, 23, 42, 0.95) 5%, rgba(15, 23, 42, 0.85) 20%, rgba(15, 23, 42, 0.8) 100%), url('images/nanobnana.png'); background-size: cover; background-position: center; background-color: #1e293b;">
         <div class="relative max-w-4xl mx-auto px-6 lg:px-16 text-center text-white">
             <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">Ready to get started?</h2>
             <p class="text-xl mb-12 text-gray-100">
