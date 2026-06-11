@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TrackedLink } from "./TrackedLink";
+import { MobileMenu } from "./MobileMenu";
 
 const links = [
   { href: "/work", label: "Work" },
@@ -42,10 +43,12 @@ export function Nav() {
           href="/contact"
           eventName="start_cta_click"
           eventProperties={{ location: "nav" }}
-          className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-line-strong hover:text-ink"
+          className="hidden rounded-full border border-line px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-line-strong hover:text-ink md:inline-flex"
         >
           Start
         </TrackedLink>
+
+        <MobileMenu />
       </nav>
     </header>
   );
