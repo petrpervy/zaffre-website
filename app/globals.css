@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@theme {
+  /* surfaces */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f5f6f8;
+  --color-bg-tint: #f3f6ff;
+  --color-card: #ffffff;
+  --color-glass: rgba(255, 255, 255, 0.66);
+
+  /* ink */
+  --color-ink: #0a0a0f;
+  --color-ink-soft: #2a2c31;
+  --color-ink-muted: #6b6f76;
+  --color-ink-faint: #a2a6ae;
+
+  /* lines */
+  --color-line: #ebecf0;
+  --color-line-strong: #dcdee3;
+
+  /* accent — calm sky-blue, used sparingly */
+  --color-accent: #2f6bff;
+  --color-accent-bright: #1f5bff;
+  --color-accent-soft: #e8efff;
+  --color-zaffre: #0e2c8b;
+  --color-zaffre-bright: #1f5bff;
+  --color-cream: #f7f2e8;
+  --color-cream-muted: rgba(247, 242, 232, 0.66);
+
+  --font-display: var(--font-geist), system-ui, sans-serif;
+  --font-body: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", monospace;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  /* faint warm paper grain — texture without noise */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E");
+}
+
+/* hide native cursor only where the custom one is active */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+/* ── Type ─────────────────────────────────────────────────────────── */
+
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.6rem, 6.2vw, 5.5rem);
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4.4vw, 3.75rem);
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.heading-md {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+}
+
+.body-lg {
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  line-height: 1.6;
+  letter-spacing: -0.006em;
+  color: var(--color-ink-muted);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+/* legacy aliases so inner pages keep compiling with the new look */
+.impact,
+.impact-lg,
+.impact-md {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-transform: none;
+}
+.impact {
+  font-size: clamp(2.6rem, 6.2vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+.impact-lg {
+  font-size: clamp(2rem, 4.4vw, 3.75rem);
+}
+.impact-md {
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+}
+.accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────── */
+
+.shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* ── Pieces ───────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 12px;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s var(--ease-smooth),
+    color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+.btn-primary {
+  background: var(--color-accent-bright);
+  color: #fff;
+  box-shadow: 0 8px 24px -8px rgba(47, 107, 255, 0.55);
+}
+.btn-primary:hover {
+  background: var(--color-zaffre);
+  box-shadow: 0 12px 30px -8px rgba(47, 107, 255, 0.65);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.7rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: transform 0.3s var(--ease-smooth),
+    background-color 0.3s var(--ease-smooth), color 0.3s var(--ease-smooth);
+}
+.pill:hover {
+  transform: translateY(-2px);
+}
+
+/* frosted glass card */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(10, 10, 15, 0.03),
+    0 24px 48px -34px rgba(10, 10, 15, 0.22);
+}
+
+.link-grow {
+  position: relative;
+  display: inline-block;
+}
+.link-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-smooth);
+}
+.link-grow:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: auto;
+    }
+  }
+}
