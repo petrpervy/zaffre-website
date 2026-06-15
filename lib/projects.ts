@@ -316,7 +316,6 @@ export const projects: Project[] = [
     metric: { value: "9", label: "Original figures illustrated for the build — knight, minis & emblems" },
     image: "/work/realms/hero-desktop.jpg",
     gallery: [
-      { src: "/work/realms/hero-desktop.jpg", caption: "Desktop — the war-banner hero" },
       { src: "/work/realms/mobile-showcase.jpg", caption: "Mobile — home, games & rooms" },
     ],
   },

@@ -12,13 +12,20 @@ export function CaseTile({
   featured?: boolean;
 }) {
   const textureIndex = index % 6;
-  const isStudioConcept = project.niche === "Studio concept";
   const kindLabel =
     project.kind === "real"
       ? "Real build"
       : project.niche === "Studio concept"
         ? "Studio concept"
         : "Concept redesign";
+
+  // Show the real website image as the permanent tile cover. Real builds use a
+  // homepage screenshot (project.image); concept redesigns use the before→after
+  // split (project.beforeAfter). Only fall back to the abstract texture when a
+  // project has no image of its own.
+  const cover = project.image ?? project.beforeAfter ?? `/work/${textureIndex}.jpg`;
+  const hasRealCover = Boolean(project.image ?? project.beforeAfter);
+  const isBeforeAfter = !project.image && Boolean(project.beforeAfter);
 
   return (
     <Link
@@ -27,60 +34,40 @@ export function CaseTile({
       className="group relative block h-full overflow-hidden rounded-[20px] border border-line bg-white transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1.5 hover:border-accent hover:ring-2 hover:ring-accent/60 hover:shadow-[0_30px_70px_-26px_rgba(47,107,255,0.6)]"
       aria-label={`${project.name} — ${project.niche} case study`}
     >
-      <div className="relative h-full min-h-[250px]">
-        {/* the soft object texture (default tile state) */}
+      <div className="relative flex h-full min-h-[160px] flex-col md:block md:min-h-[250px]">
+        {/* the real website image as the permanent tile cover — desktop only.
+            On mobile the tiles are clean text cards (no preview image). */}
+        {isBeforeAfter && (
+          <div aria-hidden className="absolute inset-0 hidden bg-[#0b0b10] md:block" />
+        )}
         <Image
-          src={isStudioConcept && project.image ? project.image : `/work/${textureIndex}.jpg`}
-          alt=""
+          src={cover}
+          alt={hasRealCover ? `${project.name} website` : ""}
           fill
-          unoptimized={isStudioConcept}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className={`object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.04] ${
-            isStudioConcept ? "opacity-95" : ""
+          unoptimized={hasRealCover}
+          sizes="(max-width: 1024px) 50vw, 33vw"
+          className={`hidden object-cover transition-transform duration-[800ms] ease-out md:block ${
+            isBeforeAfter ? "scale-[1.07] group-hover:scale-[1.11]" : "group-hover:scale-[1.04]"
           }`}
         />
 
-        {/* legibility scrims — keep the left/bottom readable over any texture */}
+        {/* legibility scrims — desktop only, keep the left/bottom readable over the image */}
         <div
           aria-hidden
-          className="absolute inset-0"
-          style={{
-            background: isStudioConcept
-              ? "linear-gradient(102deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.62) 34%, rgba(255,255,255,0.08) 72%)"
-              : "linear-gradient(102deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.6) 38%, rgba(255,255,255,0) 66%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
+          className="absolute inset-0 hidden md:block"
           style={{
             background:
-              "linear-gradient(to top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 42%)",
+              "linear-gradient(102deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.66) 32%, rgba(255,255,255,0.1) 70%)",
           }}
         />
-
-        {/* preview image — pops up only on hover. before/after = letterboxed on dark;
-            a real homepage screenshot fills the tile. */}
-        {!isStudioConcept && (project.beforeAfter || project.image) && (
-          <div
-            aria-hidden
-            className="absolute inset-0 z-20 overflow-hidden opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
-            style={{ background: project.beforeAfter ? "#0b0b10" : "transparent" }}
-          >
-            <Image
-              src={(project.beforeAfter ?? project.image)!}
-              alt={`${project.name} preview`}
-              fill
-              unoptimized
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className={`object-cover transition-transform duration-500 ease-out ${
-                project.beforeAfter
-                  ? "scale-[1.07] group-hover:scale-[1.11]"
-                  : "group-hover:scale-[1.02]"
-              }`}
-            />
-          </div>
-        )}
+        <div
+          aria-hidden
+          className="absolute inset-0 hidden md:block"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0) 44%)",
+          }}
+        />
 
         {/* content */}
         <div className="relative z-10 flex h-full flex-col justify-between p-6">
