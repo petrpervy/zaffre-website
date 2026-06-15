@@ -34,27 +34,25 @@ export function CaseTile({
       className="group relative block h-full overflow-hidden rounded-[20px] border border-line bg-white transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1.5 hover:border-accent hover:ring-2 hover:ring-accent/60 hover:shadow-[0_30px_70px_-26px_rgba(47,107,255,0.6)]"
       aria-label={`${project.name} — ${project.niche} case study`}
     >
-      <div className="relative flex h-full min-h-[160px] flex-col md:block md:min-h-[250px]">
-        {/* the real website image as the permanent tile cover — desktop only.
-            On mobile the tiles are clean text cards (no preview image). */}
-        {isBeforeAfter && (
-          <div aria-hidden className="absolute inset-0 hidden bg-[#0b0b10] md:block" />
-        )}
+      <div className="relative h-full min-h-[250px]">
+        {/* the real website image as the permanent tile cover — shown on every
+            tile, mobile and desktop. */}
+        {isBeforeAfter && <div aria-hidden className="absolute inset-0 bg-[#0b0b10]" />}
         <Image
           src={cover}
           alt={hasRealCover ? `${project.name} website` : ""}
           fill
           unoptimized={hasRealCover}
-          sizes="(max-width: 1024px) 50vw, 33vw"
-          className={`hidden object-cover transition-transform duration-[800ms] ease-out md:block ${
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className={`object-cover transition-transform duration-[800ms] ease-out ${
             isBeforeAfter ? "scale-[1.07] group-hover:scale-[1.11]" : "group-hover:scale-[1.04]"
           }`}
         />
 
-        {/* legibility scrims — desktop only, keep the left/bottom readable over the image */}
+        {/* legibility scrims — keep the left/bottom readable over the image */}
         <div
           aria-hidden
-          className="absolute inset-0 hidden md:block"
+          className="absolute inset-0"
           style={{
             background:
               "linear-gradient(102deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.66) 32%, rgba(255,255,255,0.1) 70%)",
@@ -62,7 +60,7 @@ export function CaseTile({
         />
         <div
           aria-hidden
-          className="absolute inset-0 hidden md:block"
+          className="absolute inset-0"
           style={{
             background:
               "linear-gradient(to top, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0) 44%)",
