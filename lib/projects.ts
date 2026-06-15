@@ -279,6 +279,48 @@ export const projects: Project[] = [
     image: "/work/wombinary-hero.jpg",
   },
   {
+    slug: "the-realms",
+    name: "The Realms",
+    niche: "Tabletop gaming lounge",
+    kind: "real",
+    year: 2026,
+    tagline: "Play. Paint. Roll. Conquer.",
+    outcome:
+      "A Rochester gaming lounge built like a screen-printed war poster — every figure drawn by hand.",
+    tint: "#b5231f",
+    onTint: "#f5f1e8",
+    services: ["Web Design", "Web Development", "Custom Illustration", "Booking Flow"],
+    about:
+      "The Realms is a tabletop gaming lounge in Rochester, NY — three private themed rooms for Warhammer, D&D and board-game nights, plus a stocked painting bench. The founders are part of the local hobby scene, one a competition miniature painter, and they were about to launch on a generic drag-and-drop template.",
+    brief: {
+      need: "Out-class the template the founders already had lined up with a site that looks like the hobby feels — hand-made and characterful, built for gamers, not a booking widget.",
+      constraint:
+        "No Games Workshop IP could appear anywhere, so the entire visual world — knight, army minis, every emblem — had to be illustrated from scratch for the build.",
+    },
+    type: {
+      display: "Anton",
+      body: "Zilla Slab",
+      note: "Anton stacks the headlines like a screen-printed war poster — heavy, condensed, all-caps with the last word in blood red; Zilla Slab keeps the room copy and opening hours readable underneath. Cinzel sets the wordmark, Oswald the labels.",
+    },
+    palette: [
+      { hex: "#ece4d2", name: "Aged paper" },
+      { hex: "#1c1815", name: "Ink" },
+      { hex: "#b5231f", name: "Blood red" },
+      { hex: "#f5f1e8", name: "Bone" },
+    ],
+    arc: [
+      { stage: "Direction", caption: "A brutalist screen-print poster — ink-black and one blood red on aged cream paper, woodcut illustration, stacked block capitals." },
+      { stage: "Illustration", caption: "Every figure drawn for the build — a banner knight, four army minis and a set of stamped emblems — so no stock art and no Games Workshop IP ever touches the page." },
+      { stage: "Build", caption: "Next.js with scroll-stamped reveals, a full-bleed room-walkthrough video, and a tiered no-backend booking flow. Designed for desktop and mobile." },
+    ],
+    metric: { value: "9", label: "Original figures illustrated for the build — knight, minis & emblems" },
+    image: "/work/realms/hero-desktop.jpg",
+    gallery: [
+      { src: "/work/realms/hero-desktop.jpg", caption: "Desktop — the war-banner hero" },
+      { src: "/work/realms/mobile-showcase.jpg", caption: "Mobile — home, games & rooms" },
+    ],
+  },
+  {
     slug: "brickstone-dashboard",
     name: "Brickstone Dashboard",
     niche: "Studio concept",

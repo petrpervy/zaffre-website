@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Poppins, Questrial, Roboto, Roboto_Condensed } from "next/font/google";
+import { Poppins, Questrial, Roboto, Roboto_Condensed, Anton, Zilla_Slab } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { MiniSite } from "@/components/MiniSite";
@@ -15,8 +15,10 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700", "900"], var
 const questrial = Questrial({ subsets: ["latin"], weight: "400", variable: "--spec-questrial", display: "swap" });
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"], variable: "--spec-roboto", display: "swap" });
 const robotoCondensed = Roboto_Condensed({ subsets: ["latin"], weight: ["400", "700"], variable: "--spec-roboto-condensed", display: "swap" });
+const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--spec-anton", display: "swap" });
+const zillaSlab = Zilla_Slab({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--spec-zilla", display: "swap" });
 
-const specFontVars = `${poppins.variable} ${questrial.variable} ${roboto.variable} ${robotoCondensed.variable}`;
+const specFontVars = `${poppins.variable} ${questrial.variable} ${roboto.variable} ${robotoCondensed.variable} ${anton.variable} ${zillaSlab.variable}`;
 
 // slug → the real {display, body} font-family stacks. Google faces resolve
 // via the scoped CSS vars above; Fontshare faces (loaded in globals.css) and
@@ -27,6 +29,7 @@ const SPEC_FONTS: Record<string, { display: string; body: string }> = {
   "wren-salon": { display: "'Sentient', serif", body: "'General Sans', sans-serif" },
   "hayleyjane": { display: "var(--spec-roboto-condensed), sans-serif", body: "var(--spec-roboto), sans-serif" },
   "greg-manufacturing": { display: "var(--spec-poppins), sans-serif", body: "var(--spec-questrial), sans-serif" },
+  "the-realms": { display: "var(--spec-anton), sans-serif", body: "var(--spec-zilla), serif" },
   "wombinary": { display: "var(--font-fraunces), serif", body: "var(--font-geist), sans-serif" },
   "brickstone-dashboard": { display: "var(--font-geist), sans-serif", body: "var(--font-geist), sans-serif" },
   "nexora-fintech": { display: "var(--font-geist), sans-serif", body: "var(--font-geist), sans-serif" },
