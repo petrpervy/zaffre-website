@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { MagneticButton } from "./MagneticButton";
 import { Reveal } from "./Reveal";
 import { TrackedLink } from "./TrackedLink";
+import { HeroImpression } from "./HeroImpression";
 
 export type HeroVariant = "proof-sheet" | "glass-signal" | "live-stack";
 
@@ -59,15 +60,25 @@ const variants = {
 export function HeroComposition({
   variant = "proof-sheet",
   lab = false,
+  headline,
+  body,
+  abVariant,
 }: {
   variant?: HeroVariant;
   lab?: boolean;
+  headline?: ReactNode;
+  body?: string;
+  abVariant?: string;
 }) {
   const v = variants[variant];
   const isLiveStack = variant === "live-stack";
+  const heroHeadline = headline ?? v.headline;
+  const heroBody = body ?? v.body;
+  const ctaLocation = lab ? `hero_lab_${variant}` : "hero";
 
   return (
     <section className="relative isolate overflow-hidden">
+      {abVariant ? <HeroImpression variant={abVariant} /> : null}
       <div className="absolute inset-0 -z-20 bg-white" />
       <Image
         src={v.image}
@@ -108,11 +119,11 @@ export function HeroComposition({
           </Reveal>
 
           <Reveal from="up" delay={0.05}>
-            <h1 className="display-hero max-w-[11.5ch]">{v.headline}</h1>
+            <h1 className="display-hero max-w-[11.5ch]">{heroHeadline}</h1>
           </Reveal>
 
           <Reveal from="up" delay={0.12}>
-            <p className="body-lg mt-7 max-w-[42ch]">{v.body}</p>
+            <p className="body-lg mt-7 max-w-[42ch]">{heroBody}</p>
           </Reveal>
 
           <Reveal from="up" delay={0.18}>
@@ -121,14 +132,14 @@ export function HeroComposition({
                 href="/work"
                 className="btn btn-primary inline-block"
                 eventName="proof_cta_click"
-                eventProperties={{ location: lab ? `hero_lab_${variant}` : "hero" }}
+                eventProperties={{ location: ctaLocation, variant: abVariant ?? "none" }}
               >
                 See the proof
               </MagneticButton>
               <TrackedLink
                 href={briefMailto}
                 eventName="email_brief_click"
-                eventProperties={{ location: lab ? `hero_lab_${variant}` : "hero" }}
+                eventProperties={{ location: ctaLocation, variant: abVariant ?? "none" }}
                 className="link-grow text-sm font-medium text-ink"
               >
                 Email a brief

@@ -4,7 +4,7 @@ import { CaseTile } from "./CaseTile";
 import { Reveal } from "./Reveal";
 
 export function WorkGrid({ limit }: { limit?: number }) {
-  const priority = ["the-realms", "greg-manufacturing", "hayleyjane", "wombinary"];
+  const priority = ["the-realms", "hayleyjane", "greg-manufacturing", "wombinary"];
   const byPriority = (a: (typeof projects)[number], b: (typeof projects)[number]) => {
     const ai = priority.indexOf(a.slug);
     const bi = priority.indexOf(b.slug);

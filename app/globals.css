@@ -68,6 +68,7 @@ body {
   line-height: 1.0;
   letter-spacing: -0.035em;
   font-size: clamp(2.6rem, 6.2vw, 5.5rem);
+  text-wrap: balance;
 }
 
 .display-xl {
