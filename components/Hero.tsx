@@ -1,15 +1,8 @@
-import { headers } from "next/headers";
 import { HeroComposition } from "./HeroComposition";
-import { pickHeroAb } from "@/lib/heroAb";
 
-export async function Hero() {
-  const variant = pickHeroAb((await headers()).get("x-hero-variant"));
-  return (
-    <HeroComposition
-      variant="proof-sheet"
-      headline={variant.headline}
-      body={variant.body}
-      abVariant={variant.id}
-    />
-  );
+// Hero headline locked to the "outcome" line ("Websites that make the work sell").
+// The former A/B rotation (proxy.ts + heroAb.tsx) was retired so the headline is
+// consistent everywhere — the proof-sheet variant already carries this copy.
+export function Hero() {
+  return <HeroComposition variant="proof-sheet" />;
 }

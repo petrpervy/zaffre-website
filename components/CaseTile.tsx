@@ -44,6 +44,7 @@ export function CaseTile({
           fill
           unoptimized={hasRealCover}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
           className={`object-cover transition-transform duration-[800ms] ease-out ${
             isBeforeAfter ? "scale-[1.07] group-hover:scale-[1.11]" : "group-hover:scale-[1.04]"
           }`}

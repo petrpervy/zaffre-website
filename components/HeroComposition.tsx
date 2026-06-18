@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { MagneticButton } from "./MagneticButton";
 import { Reveal } from "./Reveal";
 import { TrackedLink } from "./TrackedLink";
-import { HeroImpression } from "./HeroImpression";
 
 export type HeroVariant = "proof-sheet" | "glass-signal" | "live-stack";
 
@@ -78,7 +77,6 @@ export function HeroComposition({
 
   return (
     <section className="relative isolate overflow-hidden">
-      {abVariant ? <HeroImpression variant={abVariant} /> : null}
       <div className="absolute inset-0 -z-20 bg-white" />
       <Image
         src={v.image}

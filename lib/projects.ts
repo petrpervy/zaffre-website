@@ -30,6 +30,8 @@ export type Project = {
   beforeAfter?: string;
   /** optional real screenshot (public path) — used as the tile background + case cover */
   image?: string;
+  /** object-position for the tile cover (e.g. "top") — defaults to center */
+  imagePosition?: string;
   /** optional real design mockups (public paths + captions) — replaces the abstract case-page gallery */
   gallery?: { src: string; caption: string }[];
 };
@@ -426,6 +428,86 @@ export const projects: Project[] = [
       { stage: "Prototype", caption: "A concept direction for service businesses that need brand trust before the first call." },
     ],
     image: "/work/studio-concepts/aurelia-identity.jpg",
+  },
+  {
+    slug: "parliament-tattoo",
+    name: "Parliament",
+    niche: "Tattoo studio",
+    kind: "concept",
+    year: 2026,
+    tagline: "The work, framed like a gallery.",
+    outcome: "A concept redesign that treats an independent tattoo studio's portfolio as the whole site — editorial, not a template.",
+    tint: "#851513",
+    onTint: "#ece4d8",
+    services: ["Web Design", "Art Direction", "Portfolio System", "Booking"],
+    about:
+      "A concept for the kind of independent studio stuck on a locked-in template builder — strong artists, serious work, hidden behind a generic site they can't even edit. The redesign makes the ink the entire experience.",
+    brief: {
+      need: "Put the tattoo work at gallery scale and make booking obvious, without it reading like every other shop site.",
+      constraint:
+        "The studio's identity is the work and the people — the design has to carry that weight in print, not decorate around it.",
+    },
+    type: {
+      display: "Bodoni Moda",
+      body: "Geist",
+      note: "A tall, high-contrast Didone sets the studio name like a fashion masthead; a quiet neutral grotesk keeps the booking and studio copy legible underneath. A single oxblood handwritten script adds the human mark.",
+    },
+    palette: [
+      { hex: "#0c0d0d", name: "Ink black" },
+      { hex: "#dcd4cb", name: "Bone" },
+      { hex: "#7d0e0f", name: "Oxblood" },
+      { hex: "#3a2f29", name: "Sepia" },
+    ],
+    arc: [
+      { stage: "Masthead", caption: "The studio name set like an editorial cover — oversized serif over a portrait, the work bleeding off the edges." },
+      { stage: "The work", caption: "Tattoo photography composed as a gallery wall, not boxed into even cards — scale contrast does the talking." },
+      { stage: "The studio", caption: "Artists, space and an unmistakable booking path, kept quiet so the work stays loud." },
+    ],
+    image: "/work/concepts/parliament-full.jpg",
+    imagePosition: "center 8%",
+    gallery: [
+      { src: "/work/concepts/parliament-pages.jpg", caption: "Artists, portfolio, booking and the studio — four more pages from the same system" },
+    ],
+  },
+  {
+    slug: "fig-cat-cafe",
+    name: "Fig.",
+    niche: "Cat café + adoption lounge",
+    kind: "concept",
+    year: 2026,
+    tagline: "Warmth you can feel before you visit.",
+    outcome: "A concept redesign for a cat café and adoption lounge — characterful and editorial, where booking a visit and meeting the cats feel effortless.",
+    tint: "#2a2e1f",
+    onTint: "#ece6da",
+    services: ["Web Design", "Brand Voice", "Booking", "Adoption Flow"],
+    about:
+      "A concept for a cozy café where people drink coffee and spend time with adoptable cats. Most pet-business sites lean on clip-art and stock — this one treats the space and the cats as the brand.",
+    brief: {
+      need: "Capture the calm, characterful feel of the room and make booking a visit or browsing adoptions effortless.",
+      constraint:
+        "It has to stay warm and personal without tipping into cutesy — design-led, like a café you'd actually want to sit in.",
+    },
+    type: {
+      display: "Fraunces",
+      body: "Geist",
+      note: "A soft, high-contrast optical serif gives the café its friendly editorial voice; a clean humanist sans keeps the menu, hours and booking practical, with handwritten script accents for warmth.",
+    },
+    palette: [
+      { hex: "#e4dbd1", name: "Cream" },
+      { hex: "#2a2e1f", name: "Deep olive" },
+      { hex: "#dd8f88", name: "Dusty rose" },
+      { hex: "#756858", name: "Warm taupe" },
+    ],
+    arc: [
+      { stage: "Welcome", caption: "An oversized serif wordmark over a candid cat photo — warmth set as the first impression, hours and visit info one glance away." },
+      { stage: "More than a café", caption: "The experience and the menu woven into an editorial layout, photography of the space bleeding off the edges." },
+      { stage: "Adopt", caption: "Adoptable cats and a give-back section, with a clear, gentle path to booking a visit." },
+    ],
+    image: "/work/concepts/fig-full.jpg",
+    imagePosition: "center 8%",
+    gallery: [
+      { src: "/work/concepts/fig-pages.jpg", caption: "Menu, meet the cats, book a visit and the story — four more pages from the same system" },
+    ],
   },
 ];
 

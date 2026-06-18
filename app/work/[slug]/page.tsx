@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Poppins, Questrial, Roboto, Roboto_Condensed, Anton, Zilla_Slab } from "next/font/google";
+import { Poppins, Questrial, Roboto, Roboto_Condensed, Anton, Zilla_Slab, Bodoni_Moda } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { MiniSite } from "@/components/MiniSite";
@@ -17,8 +17,9 @@ const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"], variable: "-
 const robotoCondensed = Roboto_Condensed({ subsets: ["latin"], weight: ["400", "700"], variable: "--spec-roboto-condensed", display: "swap" });
 const anton = Anton({ subsets: ["latin"], weight: "400", variable: "--spec-anton", display: "swap" });
 const zillaSlab = Zilla_Slab({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--spec-zilla", display: "swap" });
+const bodoniModa = Bodoni_Moda({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--spec-bodoni", display: "swap" });
 
-const specFontVars = `${poppins.variable} ${questrial.variable} ${roboto.variable} ${robotoCondensed.variable} ${anton.variable} ${zillaSlab.variable}`;
+const specFontVars = `${poppins.variable} ${questrial.variable} ${roboto.variable} ${robotoCondensed.variable} ${anton.variable} ${zillaSlab.variable} ${bodoniModa.variable}`;
 
 // slug → the real {display, body} font-family stacks. Google faces resolve
 // via the scoped CSS vars above; Fontshare faces (loaded in globals.css) and
@@ -34,6 +35,8 @@ const SPEC_FONTS: Record<string, { display: string; body: string }> = {
   "brickstone-dashboard": { display: "var(--font-geist), sans-serif", body: "var(--font-geist), sans-serif" },
   "nexora-fintech": { display: "var(--font-geist), sans-serif", body: "var(--font-geist), sans-serif" },
   "aurelia-identity": { display: "var(--font-fraunces), serif", body: "var(--font-geist), sans-serif" },
+  "parliament-tattoo": { display: "var(--spec-bodoni), serif", body: "var(--font-geist), sans-serif" },
+  "fig-cat-cafe": { display: "var(--font-fraunces), serif", body: "var(--font-geist), sans-serif" },
 };
 
 export function generateStaticParams() {

@@ -13,9 +13,15 @@ export function WorkGrid({ limit }: { limit?: number }) {
     }
     return 0;
   };
+  const conceptPriority = ["parliament-tattoo", "fig-cat-cafe"];
+  const byConcept = (a: (typeof projects)[number], b: (typeof projects)[number]) => {
+    const ai = conceptPriority.indexOf(a.slug);
+    const bi = conceptPriority.indexOf(b.slug);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+  };
   const ordered = [
     ...projects.filter((project) => project.kind === "real").sort(byPriority),
-    ...projects.filter((project) => project.kind === "concept"),
+    ...projects.filter((project) => project.kind === "concept").sort(byConcept),
   ];
   const shown = limit ? ordered.slice(0, limit) : ordered;
 
