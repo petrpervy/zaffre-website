@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { WorkGrid } from "@/components/WorkGrid";
 import { Statement } from "@/components/Statement";
 import { ServicesList } from "@/components/ServicesList";
 import { Pricing } from "@/components/Pricing";
@@ -14,7 +13,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <WorkGrid limit={6} />
         <Statement />
         <ServicesList />
         <Pricing />
