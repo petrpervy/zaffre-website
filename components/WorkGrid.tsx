@@ -18,8 +18,6 @@ export function WorkGrid({ limit }: { limit?: number }) {
     ...projects.filter((project) => project.kind === "concept"),
   ];
   const shown = limit ? ordered.slice(0, limit) : ordered;
-  const realCount = shown.filter((project) => project.kind === "real").length;
-  const conceptCount = shown.filter((project) => project.kind === "concept").length;
 
   return (
     <section id="work" className="relative -mt-28 scroll-mt-20 pb-20 pt-28 md:-mt-40 md:pb-28 md:pt-40">
@@ -49,9 +47,6 @@ export function WorkGrid({ limit }: { limit?: number }) {
               </p>
             </div>
             <div className="flex flex-col items-start gap-2 md:items-end">
-              <p className="mono-label">
-                {realCount} real builds · {conceptCount} concept studies
-              </p>
               <Link href="/work" className="link-grow text-sm font-medium">
                 View all projects →
               </Link>
